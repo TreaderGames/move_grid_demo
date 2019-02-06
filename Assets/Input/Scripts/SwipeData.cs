@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SwipeData : MonoBehaviour
+namespace Treader.SwipeInput
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SwipeData : MonoBehaviour
     {
-        
-    }
+        public float swipeLength = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public enum Direction
+        {
+            None,
+            Left,
+            Right,
+            Up,
+            Down
+        }
     }
 }
