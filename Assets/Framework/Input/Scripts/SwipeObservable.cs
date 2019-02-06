@@ -37,7 +37,7 @@ namespace Treader.SwipeInput
 
         void DoSwipe()
         {
-            if (!isDragging)
+            if (!isDragging) //Get starting position only for the first frame
             {
                 startPos = Input.mousePosition;
                 isDragging = true;
@@ -49,14 +49,17 @@ namespace Treader.SwipeInput
                 {
                     UpdateDirection(swipeVector);
                     TriggerSwipeEvent();
-                    startPos = Input.mousePosition;
+
+                    /*The starting position changes once the swipe is long enough to be counted as valid. 
+                    This is so we can start a new swipe without the need to lift the pointer */
+                    startPos = Input.mousePosition; 
                 }
             }
         }
 
         void UpdateDirection(Vector2 swipeVector)
         {
-            if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
+            if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y)) //If x is greater we are swiping along the x axis
             {
                 if (swipeVector.x > 0)
                 {
@@ -67,7 +70,7 @@ namespace Treader.SwipeInput
                     currentDirection = SwipeData.Direction.Left;
                 }
             }
-            else
+            else //If y is greater we are swiping along the y axis
             {
                 if (swipeVector.y > 0)
                 {
@@ -82,7 +85,8 @@ namespace Treader.SwipeInput
 
         void TriggerSwipeEvent()
         {
-            if (currentDirection != SwipeData.Direction.None && currentDirection != previousDirection) 
+            //We check with previous direction to avoid calling direction change each time
+            if (currentDirection != SwipeData.Direction.None && currentDirection != previousDirection)
             {
                 previousDirection = currentDirection;
                 Debug.Log("Swipe Direction: " + currentDirection.ToString());
