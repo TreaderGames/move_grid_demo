@@ -6,7 +6,7 @@ namespace Treader.SwipeInput
     [RequireComponent(typeof(SwipeData))]
     public class SwipeObservable : MonoBehaviour
     {
-        public Action<SwipeData.Direction> OnDirectionChange;
+        public static Action<SwipeData.Direction> OnDirectionChange;
 
         SwipeData swipeData;
         Vector2 startPos;

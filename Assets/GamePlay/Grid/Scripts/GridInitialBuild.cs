@@ -33,17 +33,39 @@ public class GridInitialBuild : MonoBehaviour
 
     void PopulateGridNodes()
     {
+        Vector2 centerNode = GetCenterNodeCount();
+
+        bool isCenterNode = false;
         CalculateGridOffset();
 
         for (int i = 1; i < gridData.columns; i++)
         {
             for (int j = 1; j < gridData.rows; j++)
             {
-                GameObject newNode = GameObject.Instantiate(nodeTemplate, gridArea);
-                newNode.name = "(" + i + "," + j + ")";
-                newNode.transform.localPosition = new Vector3((gridColumnOffset * i) + gridAreaTopLeft.x, gridAreaTopLeft.y - (gridRowOffset * j), 0);
-                newNode.SetActive(true);
+                isCenterNode = j == centerNode.x && i == centerNode.y;
+                InstantiateNode(i, j, isCenterNode);
             }
         }
+    }
+
+    void InstantiateNode(int indexColumn, int indexRow, bool isCenter)
+    {
+        GameObject newNode = GameObject.Instantiate(nodeTemplate, gridArea);
+        newNode.name = "(" + indexColumn + "," + indexRow + ")";
+        newNode.transform.localPosition = new Vector3((gridColumnOffset * indexColumn) + gridAreaTopLeft.x, gridAreaTopLeft.y - (gridRowOffset * indexRow), 0);
+        if (isCenter)
+        {
+            PlayerSpawn playerSpawn = newNode.AddComponent<PlayerSpawn>();
+            playerSpawn.Spawn(transform.parent);
+        }
+
+        newNode.SetActive(true);
+    }
+
+    Vector2 GetCenterNodeCount()
+    {
+        Vector2 gridNodeCenter = new Vector2(Mathf.CeilToInt((gridData.rows-1)/2f) , Mathf.CeilToInt((gridData.columns-1)/2f));
+        Debug.Log("Grid node center: " + gridNodeCenter);
+        return gridNodeCenter;
     }
 }
