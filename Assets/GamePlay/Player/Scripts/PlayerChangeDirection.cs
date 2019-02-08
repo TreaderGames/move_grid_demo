@@ -8,6 +8,9 @@ public class PlayerChangeDirection : MonoBehaviour
     [SerializeField] PlayerCollisionEvents playerCollisionEvents;
     
     SwipeData.Direction nextDirection;
+
+    public SwipeData.Direction pNextDirection { get => nextDirection; }
+
     // Start is called before the first frame update
     void Start()
     {

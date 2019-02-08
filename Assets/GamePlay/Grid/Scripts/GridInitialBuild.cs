@@ -7,13 +7,19 @@ public class GridInitialBuild : MonoBehaviour
     [SerializeField] GameObject nodeTemplate;
 
     [SerializeField] GridData gridData;
+
+    PlayerSpawn playerSpawn = null;
     
     float gridRowOffset = 0;
     float gridColumnOffset = 0;
 
     Vector3 gridAreaTopLeft;
+
+    public PlayerSpawn pPlayerSpawn { get => playerSpawn; }
+    public RectTransform pGridArea { get => gridArea; }
+
     // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         Vector3[] corners = new Vector3[4];
 
@@ -55,8 +61,7 @@ public class GridInitialBuild : MonoBehaviour
         newNode.transform.localPosition = new Vector3((gridColumnOffset * indexColumn) + gridAreaTopLeft.x, gridAreaTopLeft.y - (gridRowOffset * indexRow), 0);
         if (isCenter)
         {
-            PlayerSpawn playerSpawn = newNode.AddComponent<PlayerSpawn>();
-            playerSpawn.Spawn(transform.parent);
+            playerSpawn = newNode.AddComponent<PlayerSpawn>();
         }
 
         newNode.SetActive(true);

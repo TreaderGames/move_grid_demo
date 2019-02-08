@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1818780451463492927}
   - component: {fileID: 3656658305589313027}
   - component: {fileID: 7413735622222297493}
+  - component: {fileID: 7548308683523737202}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfd52b02e64a7f4aa2697085490ebd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 40
 --- !u!50 &7281903092629043539
 Rigidbody2D:
   serializedVersion: 4
@@ -196,6 +197,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollisionEvents: {fileID: 3656658305589313027}
+--- !u!114 &7548308683523737202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62091937412550860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b61254fb2ba344982c6e756e8f1e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerArea: {fileID: 62091937412550861}
+  changeDirection: {fileID: 7413735622222297493}
 --- !u!1 &62091938084705468
 GameObject:
   m_ObjectHideFlags: 0
