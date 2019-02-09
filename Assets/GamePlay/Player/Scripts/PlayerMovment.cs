@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovment : MonoBehaviour
 {
-    [SerializeField] float speed = 6;
+    [SerializeField] PlayerData playerData;
     
     // Update is called once per frame
     void FixedUpdate()
@@ -15,6 +12,6 @@ public class PlayerMovment : MonoBehaviour
 
     void MovePlayer()
     {
-        transform.position += transform.up * speed * Time.fixedDeltaTime;
+        transform.position += transform.up * playerData.speed * Time.fixedDeltaTime;
     }
 }

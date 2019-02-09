@@ -8,14 +8,16 @@ public class PlayerChangeDirection : MonoBehaviour
     [SerializeField] PlayerCollisionEvents playerCollisionEvents;
     
     SwipeData.Direction nextDirection;
+    SwipeData.Direction currentDirection;
 
-    public SwipeData.Direction pNextDirection { get => nextDirection; }
+    public SwipeData.Direction pCurrentDirection { get => currentDirection; }
 
     // Start is called before the first frame update
     void Start()
     {
         SubscribeEvents();
         nextDirection = SwipeData.Direction.Up;
+        currentDirection = SwipeData.Direction.Up;
     }
     
     void SubscribeEvents()
@@ -36,6 +38,7 @@ public class PlayerChangeDirection : MonoBehaviour
 
     void ChangeDirection(SwipeData.Direction direction)
     {
+        currentDirection = direction;
         switch (direction)
         {
             case SwipeData.Direction.Left:
