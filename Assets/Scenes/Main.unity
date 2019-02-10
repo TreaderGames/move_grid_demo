@@ -157,6 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridBuilder: {fileID: 2544734044319058423, guid: 2d1f73480b71d1040863552c781f2dd2,
     type: 3}
+  gridLineBuilder: {fileID: 8419556055996676645, guid: 2d1f73480b71d1040863552c781f2dd2,
+    type: 3}
   canvas: {fileID: 1966994338}
   player: {fileID: 62091937412550860, guid: 9a80d22a469536c4786bd0853ca8e7c4, type: 3}
 --- !u!1 &170076733
@@ -262,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.4901123, y: -23.626343}
+  m_AnchoredPosition: {x: -0.4901123, y: -23.62622}
   m_SizeDelta: {x: -1, y: 46.31598}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &272137265

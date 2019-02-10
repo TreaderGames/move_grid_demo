@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System;
 
+/// <summary>
+/// Instantiates the player at its current location and initializes the screen warp if applicable
+/// </summary>
 public class PlayerSpawn : MonoBehaviour
 {
     [Serializable]

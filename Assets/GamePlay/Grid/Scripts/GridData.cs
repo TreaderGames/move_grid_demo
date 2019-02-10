@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Data for the grid size.
+/// </summary>
 public class GridData : MonoBehaviour
 {
     public int rows = 0;

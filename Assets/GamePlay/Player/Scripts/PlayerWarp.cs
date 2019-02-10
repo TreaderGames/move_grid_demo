@@ -2,6 +2,9 @@
 using System;
 using Treader.SwipeInput;
 
+/// <summary>
+/// Responsible for the effect of the player exiting one end of the screen and entering from another
+/// </summary>
 public class PlayerWarp : MonoBehaviour
 {
     public Action OnWarpBegin;
@@ -29,6 +32,10 @@ public class PlayerWarp : MonoBehaviour
         canInitGhost = true;
     }
 
+    /// <summary>
+    /// Checks whether the player is touching the end of the screen but is still visible in it.
+    /// </summary>
+    /// <returns></returns>
     bool IsTouchingEnd()
     {
         if (gridArea != null)
@@ -54,6 +61,10 @@ public class PlayerWarp : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Check is player has compleatly left the grid area
+    /// </summary>
+    /// <returns></returns>
     bool IsOutOfGridArea()
     {
         if (gridArea != null)
@@ -76,6 +87,11 @@ public class PlayerWarp : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Returns the left right top and bottom positions of the grid based on direction
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     float GetOffsetByDirection(SwipeData.Direction direction)
     {
         float offset = 0;
@@ -103,6 +119,10 @@ public class PlayerWarp : MonoBehaviour
         return (changeDirection.pCurrentDirection == SwipeData.Direction.Left || changeDirection.pCurrentDirection == SwipeData.Direction.Right);
     }
 
+    /// <summary>
+    /// Creates a ghost player on the other end of the grid area to create the effect of player 
+    /// entering from the other side even before the player has compleatly exited the screen.
+    /// </summary>
     void InitGhost()
     {
         if (!ghostLoaded)
@@ -120,6 +140,9 @@ public class PlayerWarp : MonoBehaviour
         ghostPlayer.SetActive(true);
     }
 
+    /// <summary>
+    /// Position the ghost player to the other end of the screen
+    /// </summary>
     void PositionGhost()
     {
         SwipeData.Direction ghostOffsetDirection;
@@ -153,6 +176,9 @@ public class PlayerWarp : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Place the player at the ghosts position and disable the ghost 
+    /// </summary>
     void WarpPlayer()
     {
         transform.localPosition = ghostPlayer.transform.localPosition;
@@ -163,13 +189,11 @@ public class PlayerWarp : MonoBehaviour
     {
         if (canInitGhost && IsTouchingEnd())
         {
-            Debug.Log(">>>>IsTouchingEnd");
             InitGhost();
         }
 
         if (ghostPlayer.activeInHierarchy && IsOutOfGridArea())
         {
-            Debug.Log(">>IsOut of grid area");
             WarpPlayer();
         }
     }

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections;
-using Treader.SwipeInput;
+﻿using Treader.SwipeInput;
 using UnityEngine;
 
+/// <summary>
+/// Responsible for when and how the player changes the direction or rotation it is facing.
+/// </summary>
 public class PlayerChangeDirection : MonoBehaviour
 {
     [SerializeField] PlayerCollisionEvents playerCollisionEvents;

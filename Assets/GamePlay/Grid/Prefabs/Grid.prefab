@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2544734044319058425}
   - component: {fileID: 2544734044319058423}
   - component: {fileID: 2544734044319058422}
+  - component: {fileID: 8419556055996676645}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -86,9 +87,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridArea: {fileID: 2544734043288832841}
+  gridData: {fileID: 2544734044319058422}
   nodeTemplate: {fileID: 8352534970514564466, guid: 819f8767c7421f54ab7042d3f3614654,
     type: 3}
-  gridData: {fileID: 2544734044319058422}
 --- !u!114 &2544734044319058422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,5 +102,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36081e201b37ffb44bfc2771995971b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 6
-  columns: 6
+  rows: 8
+  columns: 8
+--- !u!114 &8419556055996676645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544734044319058427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f145ecf5272736f4e8ae1e0828c7abe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridArea: {fileID: 2544734043288832841}
+  gridData: {fileID: 2544734044319058422}
+  horizontalLine: {fileID: 8111743608585040541, guid: b9a5ac5c51a672240b89efd4f0ec032f,
+    type: 3}
+  verticalLine: {fileID: 5963029003870334683, guid: e97fe07dcbb7036478867ea84918873d,
+    type: 3}

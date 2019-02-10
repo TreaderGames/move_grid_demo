@@ -10,6 +10,9 @@ public class PlayerMovment : MonoBehaviour
         MovePlayer();
     }
 
+    /// <summary>
+    /// Move the player in the direction it is facing.
+    /// </summary>
     void MovePlayer()
     {
         transform.position += transform.up * playerData.speed * Time.fixedDeltaTime;

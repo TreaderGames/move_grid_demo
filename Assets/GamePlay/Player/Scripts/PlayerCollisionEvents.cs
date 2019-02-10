@@ -9,7 +9,7 @@ public class PlayerCollisionEvents : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & nodeLayer) != 0)
+        if (((1 << collision.gameObject.layer) & nodeLayer) != 0) //Check if the layer mask includes the layer that the collision object is on.
         {
             OnCollidingWithNode?.Invoke();
         }
